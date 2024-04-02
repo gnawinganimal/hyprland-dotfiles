@@ -1,0 +1,5 @@
+#!/bin/sh
+set $TOTAL   $(hyprctl workspaces | grep workspace | sort -n -k 3n | wc -l)
+set $CURRENT $(hyprctl activewindow | perl -ne 'm/workspace: (.*) \(.*\)/ && print "$1\n"')
+
+echo "$CURRENT/10"
